@@ -25,10 +25,11 @@ int main(){
         childPID = wait(&statVal);
         printf("Child has finished : PID = %d\n", childPID);
         if(WIFEXITED(statVal)){
-            printf("Child excited with code %d\n", WIFEXITED(statVal));
+            printf("Child excited with code %d\n", WEXITSTATUS(statVal));
         }else{
             printf("Child terminated abnormally\n");
         }
+        _exit(0);
     }
-    _exit(0);
+    else _exit(258);
 }
